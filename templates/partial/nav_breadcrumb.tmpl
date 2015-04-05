@@ -1,5 +1,5 @@
-<TMPL_IF NAME="PATH">
-  <ol class="breadcrumb">
+<ol class="breadcrumb">
+  <TMPL_IF NAME="PATH">
     <li>
       <a href="<TMPL_VAR NAME="R_PATH">">
         <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
@@ -14,5 +14,11 @@
         </li>
       </TMPL_IF>
     </TMPL_LOOP>
-  </ol>
-</TMPL_IF>
+  <TMPL_ELSE>
+    <li>
+      <a href="<TMPL_VAR NAME="R_PATH">">
+        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+      </a>
+    </li>
+  </TMPL_IF>
+</ol>
