@@ -89,4 +89,4 @@ mv static~ static
 ![Category](docs/sample-categoryview.png)
 
 ### Mobile
-![Node-Mobile](sample-mobile-nodeview.png)
+![Node-Mobile](docs/sample-mobile-nodeview.png)
