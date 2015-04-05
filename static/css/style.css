@@ -94,16 +94,23 @@
 .sidebar .nav .nav>.active:focus>a {
   font-weight: 500;
 }
-.sidebar .back-to-top, .sidebar .collapse-all{
-  display: block;
-  padding-left: 10px;
+.sidebar .sidebar-extra{
+  padding-top: 10px;
+}
+.sidebar .sidebar-extra>li>a{
+  padding: 0px 0px 0px 10px;
   font-size: 12px;
   font-weight: 500;
   color: #ddd;
   text-decoration: none;
 }
-.sidebar .back-to-top{
-  padding-top: 10px;
+.sidebar .sidebar-extra>li>a:hover,
+.sidebar .sidebar-extra>li>a:focus{
+  color: #999;
+  border-left: none;
+}
+.sidebar .collapse-all, .sidebar .expand-all{
+  display: none;
 }
 
 /* Footer */
