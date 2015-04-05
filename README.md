@@ -5,8 +5,8 @@ Still worked on, all improvements ideas and feedbacks are welcome :+1:
 
 ## Overview
 
-**View of a service:**
-![Sample](docs/sample-serviceview.png)
+**Sample view of a service:**
+![Service](docs/sample-serviceview.png)
 
 ## Installation
 
@@ -61,7 +61,7 @@ Wait until Munin regenerates the html pages and enjoy.
 
 **Revert to the stock template:**
 
-If the cp command was correctly used with the -b option during the installation, the stock template can be get back:
+If the `cp` command was correctly used with the `-b` option during the installation, the stock template can be get back:
 ```
 cd /etc/munin
 rm -rf templates static
@@ -71,17 +71,22 @@ mv static~ static
 
 ## Samples
 
+### Desktop
+
 **Overview (home):**
-![Sample](docs/sample-overview.png)
+![Overview](docs/sample-overview.png)
 
 **Problems view:**
-![Sample](docs/sample-problemview.png)
+![Problems](docs/sample-problemview.png)
 
 **Domain view:**
-![Sample](docs/sample-domainview.png)
+![Domain](docs/sample-domainview.png)
 
 **Node view:**
-![Sample](docs/sample-nodeview.png)
+![Node](docs/sample-nodeview.png)
 
 **Category view:**
-![Sample](docs/sample-categoryview.png)
+![Category](docs/sample-categoryview.png)
+
+### Mobile
+![Node-Mobile](sample-mobile-nodeview.png)
