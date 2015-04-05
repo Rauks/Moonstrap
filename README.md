@@ -10,59 +10,58 @@ Still worked on, all improvements ideas and feedbacks are welcome :+1:
 
 ## Installation
 
-**Manual way**
+### Manual way
 
 1. Go in the munin configuration directory, usually located in the `/etc/munin/` or in the `/etc/opt/munin/` directory.
 2. Replace the `template` and `static` folders and their contents with the ones of Moonstrap. 
 3. Wait until Munin regenerates the html pages.
 4. Enjoy.
 
-**Smoother way**
+### Smoother way
 
-*Prerequisites:*
+**Prerequisites:**
 
 - Having `git` installed.
 
-*Installation:*
+**Installation:**
 
-1. Get Moonstrap:
+Get Moonstrap:
 ```
 cd /opt
 git clone https://github.com/rauks/moonstrap.git
 ```
-2. Replace the stock templace with Moonstrap (assuming that `/etc/munin/` is the location of the Munin configuration). Don't worry, a backup is created thanks to the `-b` option of the `cp` command:
+Replace the stock template with Moonstrap (assuming that `/etc/munin/` is the location of the Munin configuration). Don't worry, a backup is created thanks to the `-b` option of the `cp` command:
 ```
 cd /etc/munin/
 cp -rb /opt/moonstrap/templates .
 cp -rb /opt/moonstrap/static .
 ```
-3. Clean the old generated html files (their location depends on the `htmldir` value in the Munin master configuration, assuming it's `/var/www/munin`):
+Clean the old generated html files (their location depends on the `htmldir` value in the Munin master configuration, assuming it's `/var/www/munin`):
 ```
 rm -rf /var/www/munin/*
 ```
-4. Wait until Munin regenerates the html pages.
-5. Enjoy.
+Wait until Munin regenerates the html pages and enjoy.
 
-*Get upgrades*
+**Get upgrades**
 
-1. Get the latest version of Moonstrap:
+Get the latest version of Moonstrap:
 ```
 cd /opt/moonstrap
 git pull
 ```
-2. Update the Munin files:
+Update the Munin files:
 ```
 cd /etc/munin
 rm -rf templates static
 cp -r /opt/moonstrap/templates .
 cp -r /opt/moonstrap/static .
 ```
-3. Wait until Munin regenerates the html pages.
-4. Enjoy.
+Wait until Munin regenerates the html pages and enjoy.
 
-*Revert to the stock template:*
 
-- If the cp command was correctly used with the -b option during the installation, the stock template can be get back:
+**Revert to the stock template:**
+
+If the cp command was correctly used with the -b option during the installation, the stock template can be get back:
 ```
 cd /etc/munin
 rm -rf templates static
