@@ -1,0 +1,98 @@
+/* General */
+
+@media (max-width: 992px) {
+  .btn-vertical-parent:first-of-type {
+    margin-top: 0px;
+  }    
+  .btn-vertical-parent {
+    margin-top: 10px;
+  }   
+}
+
+.panel{
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+.panel:first-of-type{
+  margin-top: 0px;
+}
+.panel:last-of-type{
+  margin-bottom: 20px;
+}
+
+
+/* Graphs */
+
+.munin-graph-container{
+  background-color: #f0f0f0;
+}
+.munin-graph-container div{
+  padding: 0px;
+}
+.munin-graph-container .breadcrumb{
+  margin: 0px 10px;
+}
+.munin-graph{
+  display: block;
+  margin: auto;
+}
+
+/* Sidebar */
+
+#sidebar.affix {
+  top: 20px;
+}
+.sidebar {
+  margin-bottom: 20px;
+}
+.sidebar .nav>li>a {
+  color: #999;
+  padding: 4px 20px;
+  font-size: 14px;
+  font-weight: 400;
+}
+.sidebar .nav .nav>li>a {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 30px;
+  font-size: 13px;
+}
+.sidebar .nav .nav .nav>li>a {
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-left: 40px;
+  font-size: 12px;
+}
+.sidebar .nav>.active>a { color: #000; }
+.sidebar .nav>li>a {
+  border-left: 2px solid transparent;
+}
+.sidebar .nav>.active>a,
+.sidebar .nav>li>a:hover,
+.sidebar .nav>li>a:focus {
+  color: #000;
+  text-decoration: none;
+  background-color: transparent;
+  border-left: 2px solid #000;
+}
+.sidebar .nav>.active>a, 
+.sidebar .nav>.active:hover>a,
+.sidebar .nav>.active:focus>a {
+  font-weight: 700;
+}
+.sidebar .nav .nav>.active>a, 
+.sidebar .nav .nav>.active:hover>a,
+.sidebar .nav .nav>.active:focus>a {
+  font-weight: 500;
+}
+.sidebar .back-to-top, .sidebar .collapse-all{
+  display: block;
+  padding-left: 10px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #ddd;
+  text-decoration: none;
+}
+.sidebar .back-to-top{
+  padding-top: 10px;
+}

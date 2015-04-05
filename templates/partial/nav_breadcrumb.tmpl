@@ -1,0 +1,18 @@
+<TMPL_IF NAME="PATH">
+  <ol class="breadcrumb">
+    <li>
+      <a href="<TMPL_VAR NAME="R_PATH">">
+        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+      </a>
+    </li>
+    <TMPL_LOOP NAME="PATH">
+      <TMPL_IF NAME="PATHNAME"> 
+        <li>
+          <TMPL_IF NAME="PATH"><a href="<TMPL_VAR NAME="PATH">"></TMPL_IF>
+          <TMPL_VAR NAME="PATHNAME">
+          <TMPL_IF NAME="PATH"></a></TMPL_IF>
+        </li>
+      </TMPL_IF>
+    </TMPL_LOOP>
+  </ol>
+</TMPL_IF>
