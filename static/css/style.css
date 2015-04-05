@@ -105,3 +105,9 @@
 .sidebar .back-to-top{
   padding-top: 10px;
 }
+
+/* Footer */
+
+.footer .back-to-top {
+  margin-bottom: 5px;
+}
