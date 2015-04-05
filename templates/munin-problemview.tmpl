@@ -1,0 +1,149 @@
+<TMPL_INCLUDE NAME="partial/header.tmpl">
+<TMPL_INCLUDE NAME="partial/nav.tmpl">
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs">
+      <TMPL_INCLUDE NAME="partial/nav_side.tmpl">
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+
+      <TMPL_INCLUDE NAME="partial/nav_breadcrumb.tmpl">
+      
+      <div class="panel panel-danger">
+        <div id="critical" class="panel-heading" role="tab">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" href="#body-critical" aria-expanded="true" aria-controls="body-critical">
+              Problems (<TMPL_VAR NAME="NCRITICAL">)<span class="caret"></span>
+            </a>
+          </h4>
+        </div>
+        <div id="body-critical" class="panel-collapse collapse" role="tabpanel" aria-labelledby="critical">
+          <ul class="list-group">
+            <TMPL_IF NAME="NCRITICAL">
+              <TMPL_LOOP NAME="CRITICAL">
+                <li class="list-group-item munin-graph-container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <ol class="breadcrumb">
+                        <li><a href="<TMPL_VAR NAME="NODEURL">"><TMPL_VAR ESCAPE="HTML" NAME="NODENAME"></a></li>
+                        <li><TMPL_IF NAME="URL"><a href="<TMPL_VAR NAME="URL">"></TMPL_IF><TMPL_VAR ESCAPE="HTML" NAME="LABEL"><TMPL_IF NAME="URL"></a></TMPL_IF></li>
+                      </ol>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <a href="<TMPL_VAR NAME="R_PATH">/<TMPL_VAR NAME="URL">">
+                        <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="CIMGDAY">" alt="<TMPL_VAR ESCAPE="HTML" NAME="LABEL">"/>
+                      </a>
+                    </div>
+                    <div class="col-md-6">
+                      <a href="<TMPL_VAR NAME="R_PATH">/<TMPL_VAR NAME="URL">">
+                        <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="CIMGWEEK">" alt="<TMPL_VAR ESCAPE="HTML" NAME="LABEL">" />
+                      </a>
+                    </div>
+                  </div>
+                </li>
+              </TMPL_LOOP>
+            <TMPL_ELSE>
+              <li class="list-group-item">
+                There is no problems.
+              </li>
+            </TMPL_IF>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="panel panel-warning">
+        <div id="warning" class="panel-heading" role="tab">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" href="#body-warning" aria-expanded="true" aria-controls="body-warning">
+              Warnings (<TMPL_VAR NAME="NWARNING">)<span class="caret"></span>
+            </a>
+          </h4>
+        </div>
+        <div id="body-warning" class="panel-collapse collapse" role="tabpanel" aria-labelledby="warning">
+          <ul class="list-group">
+            <TMPL_IF NAME="NWARNING">
+              <TMPL_LOOP NAME="WARNING">
+                <li class="list-group-item munin-graph-container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <ol class="breadcrumb">
+                        <li><a href="<TMPL_VAR NAME="NODEURL">"><TMPL_VAR ESCAPE="HTML" NAME="NODENAME"></a></li>
+                        <li><TMPL_IF NAME="URL"><a href="<TMPL_VAR NAME="URL">"></TMPL_IF><TMPL_VAR ESCAPE="HTML" NAME="LABEL"><TMPL_IF NAME="URL"></a></TMPL_IF></li>
+                      </ol>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <a href="<TMPL_VAR NAME="R_PATH">/<TMPL_VAR NAME="URL">">
+                        <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="CIMGDAY">" alt="<TMPL_VAR ESCAPE="HTML" NAME="LABEL">"/>
+                      </a>
+                    </div>
+                    <div class="col-md-6">
+                      <a href="<TMPL_VAR NAME="R_PATH">/<TMPL_VAR NAME="URL">">
+                        <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="CIMGWEEK">" alt="<TMPL_VAR ESCAPE="HTML" NAME="LABEL">" />
+                      </a>
+                    </div>
+                  </div>
+                </li>
+              </TMPL_LOOP>
+            <TMPL_ELSE>
+              <li class="list-group-item">
+                There is no warnings.
+              </li>
+            </TMPL_IF>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="panel panel-info">
+        <div id="unknown" class="panel-heading" role="tab">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" href="#body-unknown" aria-expanded="true" aria-controls="body-unknown">
+              Unknown (<TMPL_VAR NAME="NUNKNOWN">)<span class="caret"></span>
+            </a>
+          </h4>
+        </div>
+        <div id="body-unknown" class="panel-collapse collapse" role="tabpanel" aria-labelledby="unknown">
+          <ul class="list-group">
+            <TMPL_IF NAME="NUNKNOWN">
+              <TMPL_LOOP NAME="UNKNOWN">
+                <li class="list-group-item munin-graph-container">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <ol class="breadcrumb">
+                        <li><a href="<TMPL_VAR NAME="NODEURL">"><TMPL_VAR ESCAPE="HTML" NAME="NODENAME"></a></li>
+                        <li><TMPL_IF NAME="URL"><a href="<TMPL_VAR NAME="URL">"></TMPL_IF><TMPL_VAR ESCAPE="HTML" NAME="LABEL"><TMPL_IF NAME="URL"></a></TMPL_IF></li>
+                      </ol>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <a href="<TMPL_VAR NAME="R_PATH">/<TMPL_VAR NAME="URL">">
+                        <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="CIMGDAY">" alt="<TMPL_VAR ESCAPE="HTML" NAME="LABEL">"/>
+                      </a>
+                    </div>
+                    <div class="col-md-6">
+                      <a href="<TMPL_VAR NAME="R_PATH">/<TMPL_VAR NAME="URL">">
+                        <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="CIMGWEEK">" alt="<TMPL_VAR ESCAPE="HTML" NAME="LABEL">" />
+                      </a>
+                    </div>
+                  </div>
+                </li>
+              </TMPL_LOOP>
+            <TMPL_ELSE>
+              <li class="list-group-item">
+                There is no unknown alerts.
+              </li>
+            </TMPL_IF>
+          </ul>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+<TMPL_INCLUDE NAME="partial/footer.tmpl">
