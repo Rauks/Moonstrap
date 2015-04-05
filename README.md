@@ -3,6 +3,14 @@ Alternative template for [Munin 2.x](http://munin-monitoring.org/) using [Bootst
 
 Still worked on, all improvements ideas and feedbacks are welcome :+1:
 
+- [Overview](#overview)
+- [Installation](#installation)
+  - [Manual](#manual-way)
+  - [Smooth](#smoother-way)
+- [Samples](#samples)
+  - [Desktop](#desktop)
+  - [Mobile devices](#mobile)
+
 ## Overview
 
 **Sample view of a service:**
