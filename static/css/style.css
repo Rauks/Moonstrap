@@ -1,12 +1,21 @@
 /* General */
 
-@media (max-width: 992px) {
-  .btn-vertical-parent:first-of-type {
+@media (max-width: 768px){
+  .btn-vertical-xs-12 {
+    margin-top: 10px;
+  }
+  .btn-vertical-xs-12:nth-of-type(1) {
+    margin-top: 0px;
+  }
+}
+@media (min-width: 768px) and (max-width: 991px){
+  .btn-vertical-sm-6 {
+    margin-top: 10px;
+  }
+  .btn-vertical-sm-6:nth-of-type(1), 
+  .btn-vertical-sm-6:nth-of-type(2){
     margin-top: 0px;
   }    
-  .btn-vertical-parent {
-    margin-top: 10px;
-  }   
 }
 
 .panel{
