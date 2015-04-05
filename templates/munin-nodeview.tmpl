@@ -1,0 +1,49 @@
+<TMPL_INCLUDE NAME="partial/header.tmpl">
+<TMPL_INCLUDE NAME="partial/nav.tmpl">
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs">
+      <TMPL_INCLUDE NAME="partial/nav_side.tmpl">
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+
+      <TMPL_INCLUDE NAME="partial/nav_breadcrumb.tmpl">
+      
+      <TMPL_LOOP NAME="CATEGORIES">
+        <div class="panel panel-default">
+          <div id="<TMPL_VAR ESCAPE="HTML" NAME="NAME">" class="panel-heading" role="tab">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" href="#body-<TMPL_VAR ESCAPE="HTML" NAME="NAME">" aria-expanded="true" aria-controls="body-<TMPL_VAR ESCAPE="HTML" NAME="NAME">">
+                <TMPL_VAR ESCAPE="HTML" NAME="NAME"> <span class="caret"></span>
+              </a>
+            </h4>
+          </div>
+          <div id="body-<TMPL_VAR ESCAPE="HTML" NAME="NAME">" class="panel-collapse collapse" role="tabpanel" aria-labelledby="<TMPL_VAR ESCAPE="HTML" NAME="NAME">">
+            <ul class="list-group">
+              <TMPL_LOOP NAME="SERVICES">
+                <li class="list-group-item munin-graph-container">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <a href="<TMPL_VAR NAME="URLX">">
+                        <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="IMGDAY">" alt="<TMPL_VAR ESCAPE="HTML" NAME="NAME">" />
+                      </a>
+                    </div>
+                    <div class="col-md-6">
+                      <a href="<TMPL_VAR NAME="URLX">">
+                        <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="IMGWEEK">" alt="<TMPL_VAR ESCAPE="HTML" NAME="NAME">" />
+                      </a>
+                    </div>
+                  </div>
+                </li>
+              </TMPL_LOOP>
+            </ul>
+          </div>
+        </div>
+      </TMPL_LOOP>
+      
+    </div>
+  </div>
+</div>
+
+<TMPL_INCLUDE NAME="partial/footer.tmpl">

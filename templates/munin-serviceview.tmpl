@@ -1,0 +1,100 @@
+<TMPL_INCLUDE NAME="partial/header.tmpl">
+<TMPL_INCLUDE NAME="partial/nav.tmpl">
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs">
+      <TMPL_INCLUDE NAME="partial/nav_side.tmpl">
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+
+      <TMPL_INCLUDE NAME="partial/nav_breadcrumb.tmpl">
+    
+      <TMPL_LOOP NAME="SERVICES">
+        <TMPL_IF NAME="STATE_UNKNOWN">
+            <div class="alert alert-info">This service is in <strong>unknown</strong> state, because something bad happened.  Please check your network, the munin-node, and the plugin.</div>
+        </TMPL_IF>
+        <TMPL_IF NAME="STATE_CRITICAL">
+          <div class="alert alert-danger">This service is in <strong>critical</strong> state because one of the values reported is outside the allowed range. Please see further down for information about the ranges and the graph for the values.</div>
+        </TMPL_IF>
+        <TMPL_IF NAME="STATE_WARNING">
+          <div class="alert alert-warning">This service is in <strong>warning</strong> state because one of the values reported is outside the allowed range.  Please see further down for information about the ranges and the graph for the values.</div>
+        </TMPL_IF>
+        
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <TMPL_VAR ESCAPE="HTML" NAME="NAME">
+            </h4>
+          </div>
+          <div class="panel-body munin-graph-container">
+            <div class="row">
+              <div class="col-md-6">
+                <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="IMGDAY">" alt="<TMPL_VAR ESCAPE="HTML" NAME="NAME">" data-href="<TMPL_VAR NAME="ZOOMDAY">"/>
+              </div>
+              <div class="col-md-6">
+                <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="IMGWEEK">" alt="<TMPL_VAR ESCAPE="HTML" NAME="NAME">" data-href="<TMPL_VAR NAME="ZOOMWEEK">"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="IMGMONTH">" alt="<TMPL_VAR ESCAPE="HTML" NAME="NAME">" data-href="<TMPL_VAR NAME="ZOOMMONTH">"/>
+              </div>
+              <div class="col-md-6">
+                <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="IMGYEAR">" alt="<TMPL_VAR ESCAPE="HTML" NAME="NAME">" data-href="<TMPL_VAR NAME="ZOOMYEAR">"/>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              Graph information
+            </h4>
+          </div>
+          <TMPL_LOOP NAME="GRAPHINFO">
+            <div class="panel-body">
+              <p class="text-muted"><TMPL_VAR ESCAPE="HTML" NAME="INFO"></p>
+            </div>
+          </TMPL_LOOP>
+          <table class="table table-condensed table-hover">
+            <thead>
+              <tr>
+                <th class="col-md-2">Field</th>
+                <th class="col-md-2">Internal name</th>
+                <th class="col-md-1">Type</th>
+                <th class="col-md-1">Warning</th>
+                <th class="col-md-1">Critical</th>
+                <th class="col-md-5">Info</th>
+              </tr>
+            </thead>
+            <tbody>
+              <TMPL_LOOP NAME="FIELDINFO">
+                <tr<TMPL_IF NAME="STATE_CRITICAL"> class="danger"<TMPL_ELSE><TMPL_IF NAME="STATE_WARNING"> class="warning"<TMPL_ELSE><TMPL_IF NAME="STATE_UNKNOWN"> class="info"</TMPL_IF></TMPL_IF></TMPL_IF>>
+                  <td><TMPL_VAR ESCAPE="HTML" NAME="LABEL"></td>
+                  <td><TMPL_VAR ESCAPE="HTML" NAME="FIELD"></td>
+                  <td><TMPL_VAR ESCAPE="HTML" NAME="TYPE"></td>
+                  <td class="text-warning"><TMPL_VAR ESCAPE="HTML" NAME="WARN"></td>
+                  <td class="text-danger"><TMPL_VAR ESCAPE="HTML" NAME="CRIT"></td>
+                  <td class="text-muted"><TMPL_VAR ESCAPE="HTML" NAME="INFO"></td>
+                </tr>
+                <TMPL_IF NAME="EXTINFO">
+                  <tr>
+                    <td class='wrap' colspan="6" align='left' valign='top'>
+                      <TMPL_VAR ESCAPE="HTML" NAME="EXTINFO">
+                    </td>
+                  </tr>
+                </TMPL_IF>
+              </TMPL_LOOP>
+            </tbody>
+          </table>
+        </div>
+      </TMPL_LOOP>
+
+    </div>
+  </div>
+</div>
+
+<TMPL_INCLUDE NAME="partial/footer.tmpl">
+  

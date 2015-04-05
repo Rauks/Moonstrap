@@ -1,0 +1,53 @@
+<TMPL_INCLUDE NAME="partial/header.tmpl">
+<TMPL_INCLUDE NAME="partial/nav.tmpl">
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs">
+      <TMPL_INCLUDE NAME="partial/nav_side.tmpl">
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+      
+      <TMPL_INCLUDE NAME="partial/nav_breadcrumb.tmpl">
+      
+      <TMPL_LOOP NAME="CATEGORIES">
+        <div class="panel panel-default">
+          <div id="<TMPL_VAR ESCAPE="HTML" NAME="GROUPNAME">" class="panel-heading" role="tab">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" href="#body-<TMPL_VAR ESCAPE="HTML" NAME="GROUPNAME">" aria-expanded="true" aria-controls="body-<TMPL_VAR ESCAPE="HTML" NAME="GROUPNAME">">
+                Yearly comparison: <TMPL_VAR ESCAPE="HTML" NAME="GROUPNAME"> <span class="caret"></span>
+              </a>
+            </h4>
+          </div>
+          <div id="body-<TMPL_VAR ESCAPE="HTML" NAME="GROUPNAME">"class="panel-collapse collapse" role="tabpanel" aria-labelledby="<TMPL_VAR ESCAPE="HTML" NAME="GROUPNAME">">
+            <ul class="list-group">
+              <TMPL_LOOP NAME="SERVICES">
+                <li class="list-group-item munin-graph-container">
+                  <div class="row">
+                    <TMPL_LOOP NAME="NODES">
+                      <TMPL_IF NAME="CIMGYEAR">
+                        <div class="col-md-6">
+                          <ol class="breadcrumb">
+                            <li><a href="<TMPL_VAR ESCAPE="URL" NAME="NODENAME">"><TMPL_VAR ESCAPE="HTML" NAME="NODENAME"></a></li>
+                            <li><TMPL_IF NAME="URL1"><a href="<TMPL_VAR NAME="R_PATH">/<TMPL_VAR NAME="URL">"></TMPL_IF><TMPL_VAR ESCAPE="HTML" NAME="LABEL"><TMPL_IF NAME="URL1"></a></TMPL_IF></li>
+                          </ol>
+                          <a href="<TMPL_VAR NAME="R_PATH">/<TMPL_VAR NAME="URL">">
+                            <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="CIMGYEAR">" alt="<TMPL_VAR ESCAPE="HTML" NAME="LABEL">"/>
+                          </a>
+                        </div>
+                      </TMPL_IF>
+                    </TMPL_LOOP>
+                  </div>
+                </li>
+              </TMPL_LOOP>
+            </ul>
+          </div>
+        </div>
+      </TMPL_LOOP>
+        
+    </div>
+  </div>
+</div>
+
+<TMPL_INCLUDE NAME="partial/footer.tmpl">
+

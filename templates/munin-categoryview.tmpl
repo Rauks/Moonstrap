@@ -1,0 +1,64 @@
+<TMPL_INCLUDE NAME="partial/header.tmpl">
+<TMPL_INCLUDE NAME="partial/nav.tmpl">
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs">
+      <TMPL_INCLUDE NAME="partial/nav_side.tmpl">
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+      
+      <TMPL_INCLUDE NAME="partial/nav_breadcrumb.tmpl">
+      
+      <TMPL_LOOP NAME="SERVICES">
+        <div class="panel panel-default">
+          <div id="<TMPL_LOOP NAME="GRAPHS"><TMPL_IF NAME="__FIRST__"><TMPL_LOOP NAME="PATH"><TMPL_IF NAME="__LAST__"><TMPL_VAR ESCAPE="HTML" NAME="PATHNAME"></TMPL_IF></TMPL_LOOP></TMPL_IF></TMPL_LOOP>" class="panel-heading" role="tab">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" href="#body-<TMPL_LOOP NAME="GRAPHS"><TMPL_IF NAME="__FIRST__"><TMPL_LOOP NAME="PATH"><TMPL_IF NAME="__LAST__"><TMPL_VAR ESCAPE="HTML" NAME="PATHNAME"></TMPL_IF></TMPL_LOOP></TMPL_IF></TMPL_LOOP>" aria-expanded="true" aria-controls="body-<TMPL_LOOP NAME="GRAPHS"><TMPL_IF NAME="__FIRST__"><TMPL_LOOP NAME="PATH"><TMPL_IF NAME="__LAST__"><TMPL_VAR ESCAPE="HTML" NAME="PATHNAME"></TMPL_IF></TMPL_LOOP></TMPL_IF></TMPL_LOOP>">
+                <TMPL_VAR ESCAPE="HTML" NAME="CATEGORY"> : </span><TMPL_VAR ESCAPE="HTML" NAME="NAME">
+                <TMPL_IF NAME="TIMEDAY">(daily)</TMPL_IF>
+                <TMPL_IF NAME="TIMEWEEK">(weekly)</TMPL_IF>
+                <TMPL_IF NAME="TIMEMONTH">(monthly)</TMPL_IF>
+                <TMPL_IF NAME="TIMEYEAR">(yearly)</TMPL_IF>
+                <span class="caret"></span>
+              </a>
+            </h4>
+          </div>
+          <div id="body-<TMPL_LOOP NAME="GRAPHS"><TMPL_IF NAME="__FIRST__"><TMPL_LOOP NAME="PATH"><TMPL_IF NAME="__LAST__"><TMPL_VAR ESCAPE="HTML" NAME="PATHNAME"></TMPL_IF></TMPL_LOOP></TMPL_IF></TMPL_LOOP>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="<TMPL_LOOP NAME="GRAPHS"><TMPL_IF NAME="__FIRST__"><TMPL_LOOP NAME="PATH"><TMPL_IF NAME="__LAST__"><TMPL_VAR ESCAPE="HTML" NAME="PATHNAME"></TMPL_IF></TMPL_LOOP></TMPL_IF></TMPL_LOOP>">
+            <ul class="list-group">
+              <li class="list-group-item munin-graph-container">
+                <div class="row">
+                  <TMPL_LOOP NAME="GRAPHS">
+                    <div class="col-md-6">
+                      <ol class="breadcrumb">
+                        <li><a href="<TMPL_VAR NAME="HOST_URL">"><TMPL_VAR ESCAPE="HTML" NAME="NODENAME"></a></li>
+                        <li><TMPL_IF NAME="URLX"><a href="<TMPL_VAR NAME="URLX">"></TMPL_IF><TMPL_VAR ESCAPE="HTML" NAME="LABEL"><TMPL_IF NAME="URLX"></a></TMPL_IF></li>
+                      </ol>
+                      <a href="<TMPL_VAR NAME="URLX">">
+                        <TMPL_IF NAME="TIMEDAY">
+                          <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="CIMGDAY">" alt="<TMPL_VAR ESCAPE="HTML" NAME="LABEL">"/>
+                        </TMPL_IF>
+                        <TMPL_IF NAME="TIMEWEEK">
+                          <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="CIMGWEEK">" alt="<TMPL_VAR ESCAPE="HTML" NAME="LABEL">"/>
+                        </TMPL_IF>
+                        <TMPL_IF NAME="TIMEMONTH">
+                          <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="CIMGMONTH">" alt="<TMPL_VAR ESCAPE="HTML" NAME="LABEL">"/>
+                        </TMPL_IF>
+                        <TMPL_IF NAME="TIMEYEAR">
+                          <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="CIMGYEAR">" alt="<TMPL_VAR ESCAPE="HTML" NAME="LABEL">"/>
+                        </TMPL_IF>
+                      </a>
+                    </div>
+                  </TMPL_LOOP>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </TMPL_LOOP>
+        
+    </div>
+  </div>
+</div>
+
+<TMPL_INCLUDE NAME="partial/footer.tmpl">

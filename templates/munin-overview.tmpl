@@ -1,0 +1,34 @@
+<TMPL_INCLUDE NAME="partial/header.tmpl">
+<TMPL_INCLUDE NAME="partial/nav.tmpl">
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2 col-md-2 hidden-sm hidden-xs">
+      <TMPL_INCLUDE NAME="partial/nav_side.tmpl">
+    </div>
+    <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
+      <TMPL_IF NAME="NCRITICAL">
+        <div class="alert alert-danger">Munin detected <a href="<TMPL_VAR NAME="R_PATH">/problems.html#critical"><TMPL_VAR NAME="STATE_CRITICAL"> critical problem(s)</a>.</div>
+      </TMPL_IF>
+      
+      <TMPL_IF NAME="NWARNING">
+        <div class="alert alert-warning">Munin raised <a href="<TMPL_VAR NAME="R_PATH">/problems.html#warnings"><TMPL_VAR NAME="NWARNING"> warning(s)</a>.</div>
+      </TMPL_IF>
+      
+      <TMPL_IF NAME="NUNKNOWN">
+        <div class="alert alert-info">Munin detected <a href="<TMPL_VAR NAME="R_PATH">/problems.html#unknowns"><TMPL_VAR NAME="NUNKNOWN"> unknown problem(s)</a>.</div>
+      </TMPL_IF>
+      
+      <TMPL_IF NAME="NCRITICAL"><TMPL_ELSE>
+        <TMPL_IF NAME="NWARNING"><TMPL_ELSE>
+          <TMPL_IF NAME="NUNKNOWN"><TMPL_ELSE>
+            <div class="alert alert-success">No problems or alerts have been raised by Munin. Everything seems to be fine.</div>
+          </TMPL_IF>
+        </TMPL_IF>
+      </TMPL_IF>
+      
+    </div>
+  </div>
+</div>
+
+<TMPL_INCLUDE NAME="partial/footer.tmpl">
