@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Groups <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Groups <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <TMPL_LOOP NAME="ROOTGROUPS">
               <li><a href="<TMPL_VAR NAME="R_PATH">/<TMPL_VAR NAME="URL">"><TMPL_VAR NAME="NAME"></a></li>
@@ -23,7 +23,7 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Hosts <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-list" aria-hidden="true"></span> Hosts <span class="caret"></span></a>
           <ul class="dropdown-menu">
           <TMPL_LOOP NAME="ROOTGROUPS">
             <TMPL_LOOP NAME="GROUPS">
@@ -35,7 +35,7 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Problems <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-warning-sign" aria-hidden="true"></span> Problems <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="<TMPL_VAR NAME="R_PATH">/problems.html#critical"><span class="badge alert-danger pull-right"><TMPL_VAR NAME="NCRITICAL"></span>Critical</a></li>
             <li><a href="<TMPL_VAR NAME="R_PATH">/problems.html#warning"><span class="badge alert-warning pull-right"><TMPL_VAR NAME="NWARNING"></span>Warning</a></li>
@@ -43,7 +43,7 @@
           </ul>
         </li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon glyphicon-th-large" aria-hidden="true"></span> Categories <span class="caret"></span></a>
           <ul class="dropdown-menu">
             <TMPL_LOOP NAME="GLOBALCATS">
               <li>
