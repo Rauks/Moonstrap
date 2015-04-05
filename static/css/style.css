@@ -86,12 +86,15 @@
 }
 .sidebar .nav>.active>a, 
 .sidebar .nav>.active:hover>a,
-.sidebar .nav>.active:focus>a {
-  font-weight: 700;
-}
+.sidebar .nav>.active:focus>a,
 .sidebar .nav .nav>.active>a, 
 .sidebar .nav .nav>.active:hover>a,
 .sidebar .nav .nav>.active:focus>a {
+  font-weight: 700;
+}
+.sidebar .nav .nav .nav>.active>a, 
+.sidebar .nav .nav .nav>.active:hover>a,
+.sidebar .nav .nav .nav>.active:focus>a {
   font-weight: 500;
 }
 .sidebar .sidebar-extra{

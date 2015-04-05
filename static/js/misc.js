@@ -33,11 +33,26 @@ function sidebarCollapseRefresh(){
     }
   }
 }
+function refreshActive(){
+  var pathname = location.pathname;
+  pathname = pathname.substring(0, pathname.lastIndexOf('/'));
+  $(".sidebar .nav:not(.sidebar-extra) li").each(function(i) {
+    var a = $(this).children("a");
+    if(a){
+      var apath = a[0].pathname;
+      apath = apath.substring(0, apath.lastIndexOf('/'));
+      if(pathname.indexOf(apath) == 0){
+        $(this).addClass("active");
+      }
+    }
+  });
+}
 
 if(sidebar){
   sidebar.on('affixed.bs.affix', function () {
     sidebar.css("position", "");
   });
+  refreshActive();
   
   $(document).ready(function() {
     sidebarCollapseRefresh();
