@@ -20,12 +20,12 @@ function sidebarCollapseRefresh(){
   var numExpanded = $('.panel-collapse.in').length;
   if(numCollapse != 0){
     if(numExpanded == 0){
-      $(".collapse-all").hide();
+      $(".collapse-all").hide(0);
       $(".expand-all").show();
     }
     else if (numCollapse == numExpanded){
+      $(".expand-all").hide(0);
       $(".collapse-all").show();
-      $(".expand-all").hide();
     }
     else{
       $(".collapse-all").show();
