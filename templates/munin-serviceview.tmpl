@@ -13,40 +13,41 @@
       <TMPL_INCLUDE NAME="partial/nav_tools.tmpl">
     
       <TMPL_LOOP NAME="SERVICES">
-        <TMPL_IF NAME="STATE_UNKNOWN">
-            <div class="alert alert-info">This service is in <strong>unknown</strong> state, because something bad happened.  Please check your network, the munin-node, and the plugin.</div>
-        </TMPL_IF>
-        <TMPL_IF NAME="STATE_CRITICAL">
-          <div class="alert alert-danger">This service is in <strong>critical</strong> state because one of the values reported is outside the allowed range. Please see further down for information about the ranges and the graph for the values.</div>
-        </TMPL_IF>
-        <TMPL_IF NAME="STATE_WARNING">
-          <div class="alert alert-warning">This service is in <strong>warning</strong> state because one of the values reported is outside the allowed range.  Please see further down for information about the ranges and the graph for the values.</div>
-        </TMPL_IF>
-        
         <div class="panel panel-default">
           <div class="panel-heading">
             <h4 class="panel-title">
               <TMPL_VAR ESCAPE="HTML" NAME="NAME">
             </h4>
           </div>
-          <div class="panel-body munin-graph-container">
-            <div class="row">
-              <div class="col-md-6">
-                <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="IMGDAY">" alt="<TMPL_VAR ESCAPE="HTML" NAME="NAME">" data-href="<TMPL_VAR NAME="ZOOMDAY">"/>
+          <ul class="list-group">
+            <TMPL_IF NAME="STATE_UNKNOWN">
+              <li class="list-group-item alert alert-info bg-info">This service is in <strong>unknown</strong> state, because something bad happened.  Please check your network, the munin-node, and the plugin.</li>
+            </TMPL_IF>
+            <TMPL_IF NAME="STATE_CRITICAL">
+              <li class="list-group-item alert alert-danger bg-danger">This service is in <strong>critical</strong> state because one of the values reported is outside the allowed range. Please see further down for information about the ranges and the graph for the values.</li>
+            </TMPL_IF>
+            <TMPL_IF NAME="STATE_WARNING">
+              <li class="list-group-item alert alert-warning bg-warning">This service is in <strong>warning</strong> state because one of the values reported is outside the allowed range.  Please see further down for information about the ranges and the graph for the values.</li>
+            </TMPL_IF>
+            <li class="list-group-item munin-graph-container">
+              <div class="row">
+                <div class="col-md-6">
+                  <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="IMGDAY">" alt="<TMPL_VAR ESCAPE="HTML" NAME="NAME">" data-href="<TMPL_VAR NAME="ZOOMDAY">"/>
+                </div>
+                <div class="col-md-6">
+                  <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="IMGWEEK">" alt="<TMPL_VAR ESCAPE="HTML" NAME="NAME">" data-href="<TMPL_VAR NAME="ZOOMWEEK">"/>
+                </div>
               </div>
-              <div class="col-md-6">
-                <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="IMGWEEK">" alt="<TMPL_VAR ESCAPE="HTML" NAME="NAME">" data-href="<TMPL_VAR NAME="ZOOMWEEK">"/>
+              <div class="row">
+                <div class="col-md-6">
+                  <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="IMGMONTH">" alt="<TMPL_VAR ESCAPE="HTML" NAME="NAME">" data-href="<TMPL_VAR NAME="ZOOMMONTH">"/>
+                </div>
+                <div class="col-md-6">
+                  <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="IMGYEAR">" alt="<TMPL_VAR ESCAPE="HTML" NAME="NAME">" data-href="<TMPL_VAR NAME="ZOOMYEAR">"/>
+                </div>
               </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="IMGMONTH">" alt="<TMPL_VAR ESCAPE="HTML" NAME="NAME">" data-href="<TMPL_VAR NAME="ZOOMMONTH">"/>
-              </div>
-              <div class="col-md-6">
-                <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="IMGYEAR">" alt="<TMPL_VAR ESCAPE="HTML" NAME="NAME">" data-href="<TMPL_VAR NAME="ZOOMYEAR">"/>
-              </div>
-            </div>
-          </div>
+            </li>
+          </ul>
         </div>
         
         <div class="panel panel-default">
