@@ -5,7 +5,7 @@ Still worked on, all improvements ideas and feedbacks are welcome :+1:
 
 - [Overview](#overview)
 - [Installation](#installation)
-  - [Manual](#manual-way)
+  - [Manual](#manual-dirty-way)
   - [Smooth](#smoother-way)
 - [Samples](#samples)
   - [Desktop](#desktop)
@@ -18,12 +18,11 @@ Still worked on, all improvements ideas and feedbacks are welcome :+1:
 
 ## Installation
 
-### Manual way
+### Manual dirty way
 
 1. Go in the munin configuration directory, usually located in the `/etc/munin/` or in the `/etc/opt/munin/` directory.
 2. Replace the `template` and `static` folders and their contents with the ones of Moonstrap. 
-3. Wait until Munin regenerates the html pages.
-4. Enjoy.
+3. Wait until Munin regenerates the html pages and enjoy.
 
 ### Smoother way
 
@@ -38,11 +37,15 @@ Get Moonstrap:
 cd /opt
 git clone https://github.com/rauks/moonstrap.git
 ```
-Replace the stock template with Moonstrap (assuming that `/etc/munin/` is the location of the Munin configuration). Don't worry, a backup is created thanks to the `-b` option of the `cp` command:
+Update the `tmpldir` and `staticdir` values in the Munin master configuration in order to use Moonstrap like below (usually located in `/etc/munin/munin.conf`):
 ```
-cd /etc/munin/
-cp -rb /opt/moonstrap/templates .
-cp -rb /opt/moonstrap/static .
+# Where to look for the HTML templates
+#
+tmpldir /opt/moonstrap/templates
+
+# Where to look for the static www files
+#
+staticdir /opt/moonstrap/static
 ```
 Clean the old generated html files (their location depends on the `htmldir` value in the Munin master configuration, assuming it's `/var/www/munin`):
 ```
@@ -57,24 +60,20 @@ Get the latest version of Moonstrap:
 cd /opt/moonstrap
 git pull
 ```
-Update the Munin files:
-```
-cd /etc/munin
-rm -rf templates static
-cp -r /opt/moonstrap/templates .
-cp -r /opt/moonstrap/static .
-```
 Wait until Munin regenerates the html pages and enjoy.
 
 
 **Revert to the stock template:**
 
-If the `cp` command was correctly used with the `-b` option during the installation, the stock template can be get back:
+To go back to the default template, you can simply comment out the `tmpldir` and `staticdir` values in the Munin master configuration like below:
 ```
-cd /etc/munin
-rm -rf templates static
-mv templates~ templates
-mv static~ static
+# Where to look for the HTML templates
+#
+#tmpldir /opt/moonstrap/templates
+
+# Where to look for the static www files
+#
+#staticdir /opt/moonstrap/static
 ```
 
 ## Samples
