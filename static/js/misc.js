@@ -19,17 +19,25 @@ function sidebarCollapseRefresh(){
   var numCollapse = $('.panel-collapse').length;
   var numExpanded = $('.panel-collapse.in').length;
   if(numCollapse != 0){
+    $(".collapse-all").show(0);
+    $(".expand-all").show(0);
     if(numExpanded == 0){
-      $(".collapse-all").hide(0);
-      $(".expand-all").show();
+      $(".collapse-all").prop('disabled', true);
+      $(".expand-all").prop('disabled', false);
+      $(".sidebar .collapse-all").hide(0);
+      $(".sidebar .expand-all").show();
     }
     else if (numCollapse == numExpanded){
-      $(".expand-all").hide(0);
-      $(".collapse-all").show();
+      $(".collapse-all").prop('disabled', false);
+      $(".expand-all").prop('disabled', true);
+      $(".sidebar .expand-all").hide(0);
+      $(".sidebar .collapse-all").show();
     }
     else{
-      $(".collapse-all").show();
-      $(".expand-all").show();
+      $(".collapse-all").prop('disabled', false);
+      $(".expand-all").prop('disabled', false);
+      $(".sidebar .collapse-all").show();
+      $(".sidebar .expand-all").show();
     }
   }
 }

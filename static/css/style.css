@@ -29,6 +29,9 @@
   margin-bottom: 20px;
 }
 
+.collapse-all, .expand-all{
+  display: none;
+}
 
 /* Graphs */
 

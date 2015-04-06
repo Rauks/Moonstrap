@@ -10,6 +10,8 @@
       
       <TMPL_INCLUDE NAME="partial/nav_breadcrumb.tmpl">
       
+      <TMPL_INCLUDE NAME="partial/nav_tools.tmpl">
+      
       <TMPL_LOOP NAME="SERVICES">
         <div class="panel panel-default">
           <div id="<TMPL_LOOP NAME="GRAPHS"><TMPL_IF NAME="__FIRST__"><TMPL_LOOP NAME="PATH"><TMPL_IF NAME="__LAST__"><TMPL_VAR ESCAPE="HTML" NAME="PATHNAME"></TMPL_IF></TMPL_LOOP></TMPL_IF></TMPL_LOOP>" class="panel-heading" role="tab">
