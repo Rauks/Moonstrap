@@ -1,5 +1,6 @@
 <div class="btn-toolbar hidden-xs" role="toolbar">
   <TMPL_IF NAME="COMPARE">
+    <div class="btn-group pull-right toolbar-compare" role="group">
       <div class="btn-group" role="group">
         <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
           Comparisons
@@ -15,6 +16,7 @@
     </div>
   </TMPL_IF>
   <TMPL_IF NAME="PEERS">
+    <div class="btn-group pull-right toolbar-peers" role="group">
       <div class="btn-group" role="group">
         <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
           <TMPL_VAR NAME="INFO_OPTION">
@@ -32,6 +34,7 @@
       </div>
     </div>
   </TMPL_IF>
+  <div class="btn-group pull-right toolbar-collapse" role="group">
     <button type="button" class="btn btn-default btn-sm collapse-all"><span class="glyphicon glyphicon-resize-small" aria-hidden="true"></span> Collapse all</button>
     <button type="button" class="btn btn-default btn-sm expand-all"><span class="glyphicon glyphicon-resize-full" aria-hidden="true"></span> Expand all</button>
   </div>
