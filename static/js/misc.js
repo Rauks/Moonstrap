@@ -15,33 +15,7 @@ function sidebarAffixRefresh(){
     });
   }
 }
-function collapseRefresh(){
-  var numCollapse = $('.panel-collapse').length;
-  var numExpanded = $('.panel-collapse.in').length;
-  if(numCollapse != 0){
-    $(".collapse-all").show(0);
-    $(".expand-all").show(0);
-    if(numExpanded == 0){
-      $(".collapse-all").prop('disabled', true);
-      $(".expand-all").prop('disabled', false);
-      $(".sidebar .collapse-all").hide(0);
-      $(".sidebar .expand-all").show();
-    }
-    else if (numCollapse == numExpanded){
-      $(".collapse-all").prop('disabled', false);
-      $(".expand-all").prop('disabled', true);
-      $(".sidebar .expand-all").hide(0);
-      $(".sidebar .collapse-all").show();
-    }
-    else{
-      $(".collapse-all").prop('disabled', false);
-      $(".expand-all").prop('disabled', false);
-      $(".sidebar .collapse-all").show();
-      $(".sidebar .expand-all").show();
-    }
-  }
-}
-function refreshActive(){
+function sidebarRefreshActive(){
   var pathname = location.pathname;
   pathname = pathname.substring(0, pathname.lastIndexOf('/'));
   $(".sidebar .nav:not(.sidebar-extra) li").each(function(i) {
@@ -60,7 +34,7 @@ if(sidebar){
   sidebar.on('affixed.bs.affix', function () {
     sidebar.css("position", "");
   });
-  refreshActive();
+  sidebarRefreshActive();
   
   $(document).ready(function() {
     sidebarAffixRefresh();
@@ -72,6 +46,29 @@ if(sidebar){
       sidebarAffixRefresh();
     });
   });
+}
+
+/* General */
+
+function collapseRefresh(){
+  var numCollapse = $('.panel-collapse').length;
+  var numExpanded = $('.panel-collapse.in').length;
+  if(numCollapse != 0){
+    $(".collapse-all").show(0);
+    $(".expand-all").show(0);
+    if(numExpanded == 0){
+      $(".collapse-all").prop('disabled', true);
+      $(".expand-all").prop('disabled', false);
+    }
+    else if (numCollapse == numExpanded){
+      $(".collapse-all").prop('disabled', false);
+      $(".expand-all").prop('disabled', true);
+    }
+    else{
+      $(".collapse-all").prop('disabled', false);
+      $(".expand-all").prop('disabled', false);
+    }
+  }
 }
 
 $(document).ready(function() {
