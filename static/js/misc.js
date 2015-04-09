@@ -26,6 +26,9 @@ function sidebarRefreshActive(){
       if(pathname.indexOf(apath) == 0){
         $(this).addClass("active");
       }
+      else if(a[0].hash){
+        $(this).addClass("hidden");
+      }
     }
   });
 }
