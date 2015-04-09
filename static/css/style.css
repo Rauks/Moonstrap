@@ -57,22 +57,27 @@
 .sidebar {
   padding-bottom: 20px;
 }
+.sidebar li>a{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
 .sidebar .nav>li>a {
   color: #999;
-  padding: 4px 20px;
+  padding: 4px 0px 4px 10px;
   font-size: 14px;
   font-weight: 400;
 }
 .sidebar .nav .nav>li>a {
   padding-top: 1px;
   padding-bottom: 1px;
-  padding-left: 30px;
+  padding-left: 20px;
   font-size: 13px;
 }
 .sidebar .nav .nav .nav>li>a {
   padding-top: 1px;
   padding-bottom: 1px;
-  padding-left: 40px;
+  padding-left: 30px;
   font-size: 12px;
 }
 .sidebar .nav>.active>a { color: #000; }
