@@ -27,9 +27,6 @@ function sidebarRefreshActive(){
         $(this).addClass("active");
         $(this).children('.collapse:not(.in)').addClass('in');
       }
-      else if(a[0].hash){
-        //$(this).addClass("hidden");
-      }
     }
   });
 }
@@ -56,13 +53,6 @@ if(sidebar){
         $(this).mouseenter(function(){
           collapse.each(function(){
             collapse.collapse('show');
-            sidebarAffixRefresh();
-          });
-        });
-        
-        $(this).parent().mouseleave(function(){
-          collapse.each(function(){
-            collapse.collapse('hide');
             sidebarAffixRefresh();
           });
         });
