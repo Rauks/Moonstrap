@@ -81,27 +81,35 @@ To go back to the default template, you can simply comment out the `tmpldir` and
 ### Desktop
 
 **Overview (home):**
+
 ![Overview](docs/sample-overview.png)
 
 **Problems view:**
+
 ![Problems](docs/sample-problemview.png)
 
 **Domain view:**
+
 ![Domain](docs/sample-domainview.png)
 
 **Node view:**
+
 ![Node](docs/sample-nodeview.png)
 
 **Category view (weekly comparison):**
+
 ![Category](docs/sample-categoryview.png)
 
 ### Mobile
 
 **Overview (home):**
+
 ![Overview-Mobile](docs/sample-mobile-overview.png)
 
 **Domain view:**
+
 ![Domain-Mobile](docs/sample-mobile-domainview.png)
 
 **Node view:**
+
 ![Node-Mobile](docs/sample-mobile-nodeview.png)
