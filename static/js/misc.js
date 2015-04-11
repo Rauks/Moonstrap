@@ -25,9 +25,10 @@ function sidebarRefreshActive(){
       apath = apath.substring(0, apath.lastIndexOf('/'));
       if(pathname.indexOf(apath) == 0){
         $(this).addClass("active");
+        $(this).children('.collapse:not(.in)').addClass('in');
       }
       else if(a[0].hash){
-        $(this).addClass("hidden");
+        //$(this).addClass("hidden");
       }
     }
   });
@@ -47,6 +48,25 @@ if(sidebar){
     });
     $('.panel-collapse').on('hidden.bs.collapse', function () {
       sidebarAffixRefresh();
+    });
+    
+    $('.sidebar a').each(function(i) {
+      var collapse = $(this).siblings('.collapse');
+      if(collapse){
+        $(this).mouseenter(function(){
+          collapse.each(function(){
+            collapse.collapse('show');
+            sidebarAffixRefresh();
+          });
+        });
+        
+        $(this).parent().mouseleave(function(){
+          collapse.each(function(){
+            collapse.collapse('hide');
+            sidebarAffixRefresh();
+          });
+        });
+      }
     });
   });
 }
