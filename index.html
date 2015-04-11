@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Moonstrap by Rauks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Moonstrap</h1>
+      <h2 class="project-tagline">Alternative template for Munin 2.x using Bootstrap 3.3.4</h2>
+      <a href="https://github.com/Rauks/Moonstrap" class="btn">View on GitHub</a>
+      <a href="https://github.com/Rauks/Moonstrap/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/Rauks/Moonstrap/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="moonstrap" class="anchor" href="#moonstrap" aria-hidden="true"><span class="octicon octicon-link"></span></a>Moonstrap</h1>
+
+<p>Alternative template for <a href="http://munin-monitoring.org/">Munin 2.x</a> using <a href="http://getbootstrap.com/">Bootstrap 3.3.4</a>.</p>
+
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li>
+<a href="#installation">Installation</a>
+
+<ul>
+<li><a href="#manual-dirty-way">Manual</a></li>
+<li><a href="#smoother-way">Smooth</a></li>
+</ul>
+</li>
+<li>
+<a href="#samples">Samples</a>
+
+<ul>
+<li><a href="#desktop">Desktop</a></li>
+<li><a href="#mobile">Mobile devices</a></li>
+</ul>
+</li>
+</ul>
+
+<h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+<p><strong>Sample view of a service:</strong>
+<img src="https://raw.githubusercontent.com/Rauks/Moonstrap/master/docs/sample-serviceview.png" alt="Service"></p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<h3>
+<a id="manual-dirty-way" class="anchor" href="#manual-dirty-way" aria-hidden="true"><span class="octicon octicon-link"></span></a>Manual dirty way</h3>
+
+<ol>
+<li>Go in the munin configuration directory, usually located in the <code>/etc/munin/</code> or in the <code>/etc/opt/munin/</code> directory.</li>
+<li>Replace the <code>template</code> and <code>static</code> folders and their contents with the ones of Moonstrap. </li>
+<li>Wait until Munin regenerates the html pages and enjoy.</li>
+</ol>
+
+<h3>
+<a id="smoother-way" class="anchor" href="#smoother-way" aria-hidden="true"><span class="octicon octicon-link"></span></a>Smoother way</h3>
+
+<p><strong>Prerequisites:</strong></p>
+
+<ul>
+<li>Having <code>git</code> installed.</li>
+</ul>
+
+<p><strong>Installation:</strong></p>
+
+<p>Get Moonstrap:</p>
+
+<pre><code>cd /opt
+git clone https://github.com/rauks/moonstrap.git
+</code></pre>
+
+<p>Update the <code>tmpldir</code> and <code>staticdir</code> values in the Munin master configuration in order to use Moonstrap like below (usually located in <code>/etc/munin/munin.conf</code>):</p>
+
+<pre><code># Where to look for the HTML templates
+#
+tmpldir /opt/moonstrap/templates
+
+# Where to look for the static www files
+#
+staticdir /opt/moonstrap/static
+</code></pre>
+
+<p>Clean the old generated html files (their location depends on the <code>htmldir</code> value in the Munin master configuration, assuming it's <code>/var/www/munin</code>):</p>
+
+<pre><code>rm -rf /var/www/munin/*
+</code></pre>
+
+<p>Wait until Munin regenerates the html pages and enjoy.</p>
+
+<p><strong>Get upgrades</strong></p>
+
+<p>Get the latest version of Moonstrap:</p>
+
+<pre><code>cd /opt/moonstrap
+git pull
+</code></pre>
+
+<p>Wait until Munin regenerates the html pages and enjoy.</p>
+
+<p><strong>Revert to the stock template:</strong></p>
+
+<p>To go back to the default template, you can simply comment out the <code>tmpldir</code> and <code>staticdir</code> values in the Munin master configuration like below:</p>
+
+<pre><code># Where to look for the HTML templates
+#
+#tmpldir /opt/moonstrap/templates
+
+# Where to look for the static www files
+#
+#staticdir /opt/moonstrap/static
+</code></pre>
+
+<h2>
+<a id="samples" class="anchor" href="#samples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Samples</h2>
+
+<h3>
+<a id="desktop" class="anchor" href="#desktop" aria-hidden="true"><span class="octicon octicon-link"></span></a>Desktop</h3>
+
+<p><strong>Overview (home):</strong></p>
+
+<p><img src="https://raw.githubusercontent.com/Rauks/Moonstrap/master/docs/sample-overview.png" alt="Overview"></p>
+
+<p><strong>Problems view:</strong></p>
+
+<p><img src="https://raw.githubusercontent.com/Rauks/Moonstrap/master/docs/sample-problemview.png" alt="Problems"></p>
+
+<p><strong>Domain view:</strong></p>
+
+<p><img src="https://raw.githubusercontent.com/Rauks/Moonstrap/master/docs/sample-domainview.png" alt="Domain"></p>
+
+<p><strong>Node view:</strong></p>
+
+<p><img src="https://raw.githubusercontent.com/Rauks/Moonstrap/master/docs/sample-nodeview.png" alt="Node"></p>
+
+<p><strong>Category view (weekly comparison):</strong></p>
+
+<p><img src="https://raw.githubusercontent.com/Rauks/Moonstrap/master/docs/sample-categoryview.png" alt="Category"></p>
+
+<h3>
+<a id="mobile" class="anchor" href="#mobile" aria-hidden="true"><span class="octicon octicon-link"></span></a>Mobile</h3>
+
+<p><strong>Overview (home):</strong></p>
+
+<p><img src="https://raw.githubusercontent.com/Rauks/Moonstrap/master/docs/sample-mobile-overview.png" alt="Overview-Mobile"></p>
+
+<p><strong>Domain view:</strong></p>
+
+<p><img src="https://raw.githubusercontent.com/Rauks/Moonstrap/master/docs/sample-mobile-domainview.png" alt="Domain-Mobile"></p>
+
+<p><strong>Node view:</strong></p>
+
+<p><img src="https://raw.githubusercontent.com/Rauks/Moonstrap/master/docs/sample-mobile-nodeview.png" alt="Node-Mobile"></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/Rauks/Moonstrap">Moonstrap</a> is maintained by <a href="https://github.com/Rauks">Rauks</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
