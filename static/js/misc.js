@@ -46,6 +46,9 @@ if(sidebar){
     $('.panel-collapse').on('hidden.bs.collapse', function () {
       sidebarAffixRefresh();
     });
+    $('.sidebar .collapse').on('shown.bs.collapse', function () {
+      sidebarAffixRefresh();
+    });
     
     $('.sidebar a').each(function(i) {
       var collapse = $(this).siblings('.collapse');
@@ -53,7 +56,6 @@ if(sidebar){
         $(this).mouseenter(function(){
           collapse.each(function(){
             collapse.collapse('show');
-            sidebarAffixRefresh();
           });
         });
       }
