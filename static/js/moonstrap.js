@@ -106,6 +106,11 @@ $("a").on('click', function(e) {
         var collapse = $("#body-" + hash.substring(1));
         if(!$(this).attr("data-toggle") || !collapse || !collapse.hasClass("collapse") || (collapse.hasClass("collapse") && !collapse.hasClass("in"))){
           collapse.collapse('show');
+          $('#body-' + hash.substring(1) + ' img.munin-graph').each(function()
+          {
+            var src = $(this).data('src');
+            if(src) this.src = src;
+          });
           $('html, body').animate({
             scrollTop: top
           }, 500, function(){
