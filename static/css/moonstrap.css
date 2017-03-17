@@ -69,6 +69,9 @@
 
 /* Sidebar */
 
+.col-sidebar {
+  padding-right: 0px;
+}
 #sidebar.affix {
   top: 20px;
 }
