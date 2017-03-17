@@ -92,6 +92,10 @@ $(document).ready(function() {
     e.preventDefault();
     $(".panel-collapse").collapse('show');
   });
+  
+  if($(".panel-collapse").length <= 1){
+    $(".expand-all").click();
+  }
 });
   
 /* Anchors */
