@@ -74,6 +74,16 @@ function collapseRefresh(){
   }
 }
 
+function lazyLoad(cnt)
+{
+  if(!cnt) cnt = ".panel-collapse.in";
+  $(cnt + ' img.munin-graph').each(function()
+  {
+    var src = $(this).data('src');
+    if(src) this.src = src;
+  });
+}
+
 $(document).ready(function() {
   collapseRefresh();
 
@@ -107,9 +117,11 @@ $("a").on('click', function(e) {
       if(this.pathname == location.pathname){
         e.preventDefault();
         var top = $(hash).offset().top - 5;
-        var collapse = $("#body-" + hash.substring(1));
+        var slctr = "#body-" + hash.substring(1);
+        var collapse = $(slctr);
         if(!$(this).attr("data-toggle") || !collapse || !collapse.hasClass("collapse") || (collapse.hasClass("collapse") && !collapse.hasClass("in"))){
           collapse.collapse('show');
+          lazyLoad(slctr);
           $('html, body').animate({
             scrollTop: top
           }, 500, function(){
@@ -125,9 +137,11 @@ $(document).ready(function() {
   if (location.hash){
     var hash = location.hash;
     var top = $(hash).offset().top - 5;
-    var collapse = $("#body-" + hash.substring(1));
+    var slctr = "#body-" + hash.substring(1);
+    var collapse = $(slctr);
     if (collapse){
       collapse.collapse('show');
+      lazyLoad(slctr);
     }
     $('html, body').animate({
       scrollTop: top

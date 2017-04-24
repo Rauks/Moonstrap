@@ -38,16 +38,16 @@
                       </ol>
                       <a href="<TMPL_VAR NAME="URLX">">
                         <TMPL_IF NAME="TIMEDAY">
-                          <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="CIMGDAY">" alt="<TMPL_VAR ESCAPE="HTML" NAME="LABEL">"/>
+                          <img class="img-responsive munin-graph" data-src="<TMPL_VAR NAME="CIMGDAY">" alt="<TMPL_VAR ESCAPE="HTML" NAME="LABEL">"/>
                         </TMPL_IF>
                         <TMPL_IF NAME="TIMEWEEK">
-                          <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="CIMGWEEK">" alt="<TMPL_VAR ESCAPE="HTML" NAME="LABEL">"/>
+                          <img class="img-responsive munin-graph" data-src="<TMPL_VAR NAME="CIMGWEEK">" alt="<TMPL_VAR ESCAPE="HTML" NAME="LABEL">"/>
                         </TMPL_IF>
                         <TMPL_IF NAME="TIMEMONTH">
-                          <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="CIMGMONTH">" alt="<TMPL_VAR ESCAPE="HTML" NAME="LABEL">"/>
+                          <img class="img-responsive munin-graph" data-src="<TMPL_VAR NAME="CIMGMONTH">" alt="<TMPL_VAR ESCAPE="HTML" NAME="LABEL">"/>
                         </TMPL_IF>
                         <TMPL_IF NAME="TIMEYEAR">
-                          <img class="img-responsive munin-graph" src="<TMPL_VAR NAME="CIMGYEAR">" alt="<TMPL_VAR ESCAPE="HTML" NAME="LABEL">"/>
+                          <img class="img-responsive munin-graph" data-src="<TMPL_VAR NAME="CIMGYEAR">" alt="<TMPL_VAR ESCAPE="HTML" NAME="LABEL">"/>
                         </TMPL_IF>
                       </a>
                     </div>
